@@ -1,11 +1,15 @@
 package razglas.projekat.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 
@@ -13,10 +17,16 @@ import javax.persistence.ManyToOne;
 public class Grad {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String naziv;
 	private String opstina;
+	
+	@OneToMany
+	private List<Objekat> objekti = new ArrayList<>();
+	@OneToMany
+	private List<Dogadjaj> dogadjaj = new ArrayList<>();
+	
 	@ManyToOne(cascade = CascadeType.ALL)	
 	private Drzava drzava = new Drzava();
 

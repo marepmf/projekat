@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CountryServiceService {
 API= 'http://localhost:8080/drzave';
-  COUNTRY = [{'id':"436546", 'name':"23wwraf"}]
   constructor(private http: HttpClient) { }
 
 
@@ -18,26 +17,18 @@ API= 'http://localhost:8080/drzave';
   }
 
   addCountry(country: any){
-    this.COUNTRY.push(country);
-    this.postDrzava(country).subscribe(()=>{
-      console.log("drzava dodata");
-    });
+    this.postDrzava(country);
   }
   getAllCountries():any{
     return this.http.get(this.API+'/sve');
   }
   deleteCountryByID( id : any){
-    var index = this.COUNTRY.findIndex(el => { return el.id === id});
-    this.COUNTRY.splice( index,1);
-    console.log(this.COUNTRY);
+    this.http.delete (this.API + '/izbrisi/' + id);
   }
 
-  dodeliId(){
-    return this.COUNTRY.length+1;
-  }
 
   postDrzava(country: any){
-    return this.http.post(this.API+ '/postDrzava', country);
+    this.http.post(this.API+ '/postDrzava', country);
   }
 
 }

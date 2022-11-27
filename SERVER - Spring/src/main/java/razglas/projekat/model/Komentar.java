@@ -15,27 +15,28 @@ public class Komentar {
 	private String tekst;
 	private String vreme;
 	private int lajkovi;
-	//@ManyToOne
-	//private Korisnik korisnik;
-	//@ManyToOne
-	//private Objava objava;
+	
+	@ManyToOne
+	private Korisnik korisnik;
+	@ManyToOne
+	private Objava objava;
 
 	
 	
-	public Komentar(long id, String tekst, String vreme, int lajkovi/*, Korisnik korisnik, Objava objava*/) {
+	public Komentar(long id, String tekst, String vreme, Korisnik korisnik, Objava objava) {
 		super();
 		this.id = id;
 		this.tekst = tekst;
 		this.vreme = vreme;
-		this.lajkovi = lajkovi;
-		//this.korisnik = korisnik;
-		//this.objava = objava;
+		this.lajkovi = 0;
+		this.korisnik = korisnik;
+		this.objava = objava;
 	}
 	
 	public Komentar() {
 		
 	}
-/*
+
 	public Korisnik getKorisnik() {
 		return korisnik;
 	}
@@ -51,7 +52,7 @@ public class Komentar {
 	public void setObjava(Objava objava) {
 		this.objava = objava;
 	}
-*/
+
 	public long getId() {
 		return id;
 	}

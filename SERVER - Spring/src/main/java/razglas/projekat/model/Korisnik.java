@@ -21,6 +21,9 @@ public class Korisnik {
 	private TipKorisnika tip;
 	@OneToMany
 	List<Objava> objave = new ArrayList<Objava>();	
+	@OneToMany
+	List<Komentar> komentari = new ArrayList<>();
+	
 	public void setTip(TipKorisnika tip) {
 		this.tip = tip;
 	}
@@ -68,6 +71,18 @@ public class Korisnik {
 
 	public void setIme(String ime) {
 		this.ime = ime;
+	}
+	public List<Objava> getObjave() {
+		return objave;
+	}
+	public void setObjave(List<Objava> objave) {
+		this.objave = objave;
+	}
+	public List<Komentar> getKomentari() {
+		return komentari;
+	}
+	public void setKomentari(List<Komentar> komentari) {
+		this.komentari = komentari;
 	}
 	
 	

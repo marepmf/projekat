@@ -5,6 +5,7 @@ import { AdminEntityViewComponent } from './admin-entity-view/admin-entity-view.
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { DodajDrzavuComponent } from './dodaj-drzavu/dodaj-drzavu.component';
 import { DodajEntitetComponent } from './dodaj-entitet/dodaj-entitet.component';
+import { DodajGradComponent } from './dodaj-grad/dodaj-grad.component';
 import { DodajKomentarComponent } from './dodaj-komentar/dodaj-komentar.component';
 import { EventComponent } from './event/event.component';
 import { LoginComponent } from './login/login.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'dodajObjekat', component: ObjekatComponent},
   {path:'event/:id', component: EventComponent},
   {path:'dodajObjavu', component: ObjavaComponent},
+  {path:'dodajGrad', component:DodajGradComponent},
   {path:'dodajTipObjekta', component: TipObjektaComponent}
 ];
 

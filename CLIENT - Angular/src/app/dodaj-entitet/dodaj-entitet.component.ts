@@ -11,30 +11,15 @@ import { CountryServiceService } from '../country-service.service';
 })
 export class DodajEntitetComponent implements OnInit {
 
-  Countries :any;
+
   
-  formControl = new FormGroup({
-    naziv: new FormControl(''),
-    opstina : new FormControl(''),
-    country : new FormControl('')
-  })
 
-  constructor(private route: Router , private citiesService: CitiesService, private countryService: CountryServiceService) { }  
-
+  constructor(private route: Router ){}
   ngOnInit(): void {
-    this.countryService.getAllCountries().subscribe((data:any)=>{this.Countries = data});
+   
 
   }
-  create(){
-    var city ={
-      naziv: this.formControl.value.naziv,
-      opstina : this.formControl.value.opstina,
-      country: this.formControl.value.country
-    }
-    this.citiesService.addCity(city);
-    console.log("entitet je kreiran : " + city.naziv);
-  }
-
+ 
   dodajKomentar(){
     this.route.navigate(["dodajKomentar"]);
   }
@@ -53,6 +38,9 @@ export class DodajEntitetComponent implements OnInit {
 
   dodajTipObjekta(){
     this.route.navigate(['dodajTipObjekta'])
+  }
+  dodajGrad(){
+    this.route.navigate(['dodajGrad'])
   }
 
 }

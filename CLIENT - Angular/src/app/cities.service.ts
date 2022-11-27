@@ -25,7 +25,7 @@ export class CitiesService{
     { property: 'naziv', display: "Naziv" }];
   }
 
-  getAllCities(){
+  getAllCities() :any{
     return this.http.get(this.API+"/sve");
   }
 
@@ -38,7 +38,7 @@ export class CitiesService{
   addCity(city: any){
     
     this.postGrad(city).subscribe(()=>{
-      console.log("citu added" );
+      console.log("city added" );
     }); 
   
   }

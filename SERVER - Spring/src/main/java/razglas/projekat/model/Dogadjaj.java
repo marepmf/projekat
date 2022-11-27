@@ -9,16 +9,22 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Dogadjaj {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	private String naziv;
 	private String opis;
 	private String datum;
+	
 	private String slika;
+	@ManyToOne
+	private Grad grad;
+	@JsonIgnore
 	@OneToMany
 	private List<Objava> objave;
 	public List<Objava> getObjave() {
@@ -29,15 +35,6 @@ public class Dogadjaj {
 		this.objave = objave;
 	}
 
-	public String getSlika() {
-		return slika;
-	}
-
-	public void setSlika(String slika) {
-		this.slika = slika;
-	}
-	@ManyToOne
-	private Grad grad;
 	
 	public String getOpis() {
 		return opis;
@@ -86,6 +83,14 @@ public class Dogadjaj {
 	}
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
+	}
+
+	public String getSlika() {
+		return slika;
+	}
+
+	public void setSlika(String slika) {
+		this.slika = slika;
 	}
 	
 	

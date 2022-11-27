@@ -1,15 +1,33 @@
 <h1>Dodaj objekat</h1>>
 
 
-    <form class="example-form" [formGroup]="formControl">
-        <mat-form-field class="example-full-width" >
-          <mat-label>Naziv Objekta</mat-label>
-          <input matInput placeholder="Naziv Objekta" formControlName="naziv">
-        </mat-form-field>
-      
+<form class="example-form" [formGroup]="formControl">
+  <mat-form-field class="example-full-width">
+    <mat-label>Naziv Objekta</mat-label>
+    <input matInput placeholder="Naziv Objekta" formControlName="naziv">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Odaberi tip objekta</mat-label>
+    <mat-select formControlName="tip">
+      <mat-option *ngFor="let type of objectTypes" [value]="type" >
+        {{type.tip}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Odaberi grad</mat-label>
+    <mat-select formControlName="grad">
+      <mat-option *ngFor="let city of cities" [value]="city" >
+        {{city.naziv}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+
 </form>
 
 <section>
-  <button mat-raised-button (click)="create()" >Dodaj</button>
-  <button mat-raised-button color="primary" (click)="idiNazad()" > nazad</button>
+  <button mat-raised-button (click)="create()">Dodaj</button>
+  <button mat-raised-button color="primary" (click)="idiNazad()"> nazad</button>
 </section>

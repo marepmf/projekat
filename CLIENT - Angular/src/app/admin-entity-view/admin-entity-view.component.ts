@@ -35,7 +35,7 @@ export class AdminEntityViewComponent implements OnInit {
       console.log(this.displayedColumns)
   }
   showCities(){
-    this.citiesService.getAllCities().subscribe((data)=>{
+    this.citiesService.getAllCities().subscribe((data :any)=>{
       this.citiesService.CITIES = data;
       console.log(data);
       this.displayedColumns = this.citiesService.getFullColumns();
@@ -51,7 +51,7 @@ export class AdminEntityViewComponent implements OnInit {
   showCountries(){
     this.displayedColumns = this.countryService.getFullColumns();
     this.displayPropertyColumns = this.countryService.getPropertyColumns();
-    this.dataSource = this.countryService.COUNTRY;
+    this.dataSource = this.countryService.getAllCountries();
   }
   deleteRow(target : any){
     if(this.selectedEntity=='Gradovi'){

@@ -29,6 +29,7 @@ import { ObjekatComponent } from './objekat/objekat.component';
 import { ObjavaComponent } from './objava/objava.component';
 import { TipObjektaComponent } from './tip-objekta/tip-objekta.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { DodajGradComponent } from './dodaj-grad/dodaj-grad.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     EventComponent,
     ObjekatComponent,
     ObjavaComponent,
-    TipObjektaComponent
+    TipObjektaComponent,
+    DodajGradComponent
     
   ],
   imports: [

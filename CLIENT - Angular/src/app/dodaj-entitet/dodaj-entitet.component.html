@@ -1,44 +1,17 @@
-
 <div class="container">
-    <div class="card" style="align-items: center">
-        <h1>Dodavanje novog grada</h1>
+  <div class="card">
+    <h1 class="header">Dodavanje novih entiteta</h1>
+    <h1> Izaberite entitet za dodati</h1>
+  </div>
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button (click)="dodajGrad()">Dodaj grad</button>
+      <button mat-raised-button (click)="dodajKomentar()">Dodaj komentar</button>
+      <button mat-raised-button (click)="dodajDrzavu()">Dodaj drzavu</button>
+      <button mat-raised-button (click)="dodajObjekat()">Dodaj objekat</button>
+      <button mat-raised-button (click)="dodajObjavu()">Dodaj objavu</button>
+      <button mat-raised-button (click)="dodajTipObjekta()">DodajTipObjekta</button>
     </div>
+  </section>
 
-    <div class="card">
-        <form class="example-form" [formGroup]="formControl">
-            <mat-form-field class="example-full-width" >
-              <mat-label>Naziv grada</mat-label>
-              <input matInput placeholder="Ex. Pizza" formControlName="naziv">
-            </mat-form-field>
-          
-            <mat-form-field class="example-full-width" >
-              <mat-label>Opstina</mat-label>
-              <input matInput placeholder="Naziv opstine" formControlName="opstina">
-            </mat-form-field>
-
-            <mat-form-field >
-                <mat-label>Odaberi drzavu</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let country of Countries" [value]="country.id"> <!-- Ovaj value povezuje na ceo odabrani obojekat-->
-                    Drzava : {{country.naziv}} ima id {{country.id}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-
-              <button mat-raised-button color="primary" class="creat" (click)="create()">Dodaj</button>
-              
-          </form>
-
-          <section>
-            <div class="example-button-row">
-              <button mat-raised-button  (click)="dodajKomentar()">Dodaj komentar</button>
-              <button mat-raised-button  (click)="dodajDrzavu()">Dodaj drzavu</button>
-              <button mat-raised-button  (click)="dodajObjekat()">Dodaj objekat</button>
-              <button mat-raised-button  (click)="dodajObjavu()">Dodaj objavu</button>
-              <button mat-raised-button  (click)="dodajTipObjekta()">DodajTipObjekta</button>
-            </div>
-          </section>
-
-    </div>
 </div>
-

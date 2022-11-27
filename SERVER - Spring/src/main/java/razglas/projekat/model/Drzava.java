@@ -20,26 +20,15 @@ public class Drzava {
 	private String naziv;
 	@OneToMany
 	private List<Grad> gradovi = new ArrayList<Grad>();
-	//@OneToMany
-	//private List<Korisnik> korisnici = new ArrayList<>();
+
 	public Drzava() {
 		
 	}
-	public Drzava(long id, String naziv/*, List<Korisnik>korisnici*/) {
+	public Drzava(long id, String naziv) {
 		super();
 		this.id = id;
 		this.naziv = naziv;
-	//	this.korisnici = korisnici;
 	}
-/*
-	public List<Korisnik> getKorisnici() {
-		return korisnici;
-	}
-
-	public void setKorisnici(List<Korisnik> korisnici) {
-		this.korisnici = korisnici;
-	}
-*/
 	public long getId() {
 		return id;
 	}

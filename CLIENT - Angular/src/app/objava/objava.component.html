@@ -13,11 +13,14 @@
             <input matInput placeholder="naslov" formControlName="naslov">
          </mat-form-field>
 
-        <!-- <form class="example-form" [formGroup]="formControl">
-                <mat-form-field class="example-full-width" >
-                <mat-label>Vreme objave</mat-label>
-                <input matInput placeholder="Vreme objave" formControlName="vreme">
-        </mat-form-field> -->
+         <mat-form-field>
+          <mat-label>Odaberi dogadjaj</mat-label>
+          <mat-select formControlName="dogadjaj">
+            <mat-option *ngFor="let event of events" [value]="event" >
+              {{event | json}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </form>
     <section>
       <button mat-raised-button (click)="create()" >Dodaj</button>

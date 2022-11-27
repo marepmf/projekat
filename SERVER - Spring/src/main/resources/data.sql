@@ -1,6 +1,8 @@
 insert into Tip_Korisnika (id, tip) values (1, 'Admin');
 insert into Tip_Korisnika (id, tip) values (2, 'Adsfsdf');
 
+insert into Tip_objekta (id, tip) values (1, 'Vanjski');
+
 insert into Komentar (id,tekst,vreme,lajkovi) values(5,'f','3:00',4);
 
 insert into Drzava (id, naziv) values (1, 'Srbija');

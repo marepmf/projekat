@@ -11,7 +11,7 @@ export class EventService {
 
   API = 'http://localhost:8080/dogadjaj';
 
-  getAllEvent() {
+  getAllEvent(){
     return this.http.get(this.API + "/sve");
   }
   
