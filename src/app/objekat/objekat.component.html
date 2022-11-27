@@ -1,0 +1,15 @@
+<h1>Dodaj objekat</h1>>
+
+
+    <form class="example-form" [formGroup]="formControl">
+        <mat-form-field class="example-full-width" >
+          <mat-label>Naziv Objekta</mat-label>
+          <input matInput placeholder="Naziv Objekta" formControlName="naziv">
+        </mat-form-field>
+      
+</form>
+
+<section>
+  <button mat-raised-button (click)="create()" >Dodaj</button>
+  <button mat-raised-button color="primary" (click)="idiNazad()" > nazad</button>
+</section>

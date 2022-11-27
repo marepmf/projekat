@@ -1,0 +1,44 @@
+<mat-toolbar>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Bsdfsdjf</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+      
+   <span (click)="goToHomePage()">Moj projekat</span>
+   
+   <button mat-button (click)="goToLogin()" *ngIf="!isUserLogged()"> 
+     <span> Login </span>
+   </button>
+   <button mat-button (click)="goToRegistration()" *ngIf="!isUserLogged()"> 
+     <span> Registracija </span>
+   </button>
+   <button mat-button  (click)="goToUser()" *ngIf="isUserLogged()"> 
+    <span> Svi korisnici</span>
+  </button>
+  <button mat-button (click)="goToAdminPanel()" *ngIf=" isUserLogged()">
+    <span> Admin strana </span>
+  </button>
+  <button mat-button (click)="goToAdminEntityView()" *ngIf=" isUserLogged()">
+    <span> Entiteti </span>
+  </button>
+  <button mat-button (click)="logout()" *ngIf="isUserLogged()">
+    <span> Odjavi se </span>
+  </button>
+  
+  <button mat-button (click)="goToDodajEntitet()" *ngIf="isUserLogged()"> Dodaj Entitet</button>
+
+ </mat-toolbar>
+ 

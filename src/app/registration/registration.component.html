@@ -1,0 +1,40 @@
+<div class="center">
+    <mat-card>
+        <form [formGroup]="inputData">
+
+            <mat-card-title>
+                Registracija korisnika
+            </mat-card-title>
+
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="firstName">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Surname</mat-label>
+                <input matInput formControlName="surname">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email" placeholder="example:anaperic@gmail.com">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type={{passwordType}}>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Password1</mat-label>
+                <input matInput formControlName="password1" type={{passwordType}}>
+            </mat-form-field>
+            <br>
+            <mat-checkbox class="example-margin" (change)="showHidePassword($event)">{{password_status}}</mat-checkbox>
+            <br>
+            <button mat-stroked-button color="primary" (click)="registration()">Registruj se</button>
+        </form>
+        {{registration_message}}
+    </mat-card>
+</div>

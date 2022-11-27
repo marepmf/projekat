@@ -1,0 +1,25 @@
+<h1>Dodaj objavu</h1>
+
+
+    <form class="example-form" [formGroup]="formControl">
+        <mat-form-field class="example-full-width" >
+          <mat-label>tekst</mat-label>
+          <input matInput placeholder="Tekst objave" formControlName="tekst">
+        </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" >
+            <mat-label>Naslov</mat-label>
+            <input matInput placeholder="naslov" formControlName="naslov">
+         </mat-form-field>
+
+        <!-- <form class="example-form" [formGroup]="formControl">
+                <mat-form-field class="example-full-width" >
+                <mat-label>Vreme objave</mat-label>
+                <input matInput placeholder="Vreme objave" formControlName="vreme">
+        </mat-form-field> -->
+      </form>
+    <section>
+      <button mat-raised-button (click)="create()" >Dodaj</button>
+      <button mat-raised-button color="primary" (click)="idiNazad()">nazad</button>
+    </section>

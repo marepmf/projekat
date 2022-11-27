@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card" style="align-items: center">
+      <h1>Dodavanje komentara</h1>
+  </div>
+
+  <div class="card">
+    <form class="example-form" [formGroup]="formControl">
+        <mat-form-field class="example-full-width" >
+          <mat-label>Tekst</mat-label>
+          <input matInput placeholder="Tekst" formControlName="tekst">
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width" >
+          <mat-label>Vreme</mat-label>
+          <input matInput placeholder="Vreme objave" formControlName="vreme">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" >
+            <mat-label>Lajkovi</mat-label>
+            <input matInput placeholder="Broj lajkova" formControlName="lajkovi">
+          </mat-form-field>
+          
+  </form>
+
+
+  <section>
+    <button mat-raised-button (click)="create()" >Dodaj</button>
+    <button mat-raised-button color="primary" (click)="idiNazad()" > nazad</button>
+  </section>
+
+  </div>
+  </div>

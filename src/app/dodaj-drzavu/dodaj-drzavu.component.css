@@ -1,0 +1,25 @@
+button{
+    height: 35px;
+    width: 15%;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+form{
+
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    
+}

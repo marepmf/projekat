@@ -1,0 +1,13 @@
+<h1>Dodaj tip objekta</h1>
+
+    <form class="example-form" [formGroup]="formControl">
+        <mat-form-field class="example-full-width" >
+          <mat-label>Tip objekta</mat-label>
+          <input matInput placeholder="tip-objekta" formControlName="tip">
+        </mat-form-field>
+    </form>
+
+<section>
+  <button mat-raised-button (click)="create()" >Dodaj</button>
+  <button mat-raised-button color="primary" (click)="idiNazad()" > nazad</button>
+</section>

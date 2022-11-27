@@ -1,0 +1,39 @@
+<p>Prikaz svih entiteta u aplikaciji</p>
+<mat-form-field appearance="fill">
+<mat-label>Prikaz entiteta</mat-label>
+<mat-select name="entity" [(ngModel)]="selectedEntity">
+  <mat-option *ngFor="let x of entity_list" [value]="x">
+    {{x}}
+  </mat-option>
+</mat-select>
+</mat-form-field>
+
+<button type="button" (click)="showEntity()">Prikazi entitet </button> 
+
+<!-- ------------------------------------------------------------------- -->
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <div *ngFor="let column of displayedColumns">
+        <!-- Position Column -->
+        <ng-container matColumnDef={{column.property}}>
+        <th mat-header-cell *matHeaderCellDef>  {{column.display}}   </th>
+        <td mat-cell *matCellDef="let element"> {{element[column.property]}}</td>
+        </ng-container>
+    </div>
+
+    <ng-container matColumnDef="brisi">
+      <th mat-header-cell *matHeaderCellDef>  Brisanje trallaa  </th>
+      <td mat-cell *matCellDef="let element"> <button (click)="deleteRow(element)"> Brisi red</button> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="izmeni">
+          <th mat-header-cell *matHeaderCellDef> Izmena tralala</th>
+          <td mat-cell *matCellDef="let element"><button (click)="changeRow(element)"> Izmeni red </button></td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayPropertyColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayPropertyColumns;"></tr>
+  </table>
+
+  
