@@ -1,0 +1,19 @@
+<html>
+<body>
+<h1> Ovo je spisak svih korisnika</h1>
+
+<ul>
+	<tr th:each="user: ${korisnici}">
+		<li>
+		<form action="/korisnici/izbrisi" method="get">
+		    <td th:text="${user.id}" />
+		    <td th:text="${user.ime}" />
+		    <td th:text="${user.prezime}" />
+		    <input name=id th:value="${user.id}">
+		    <td> <button type="submit"> Obrisi korisnika </button></td>		
+		</li>
+		</form>
+	</tr>
+</ul>
+</body>
+</html>
