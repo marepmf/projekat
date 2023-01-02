@@ -6,9 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  public USERS = [
-    { id: "0", name: "Admin", email: "", password: "admin", role: "Admin" },
-    { id: "1", name: "Ana", email: "Anaperic123@gmail.com", surname: "Peric", password: "123", role: "User" }
+  public USERS:any = [
   ];
   loggedUser: any; // ulogovani korisnik/admin
   isUserLogged = false;
@@ -32,7 +30,7 @@ export class UserService {
 
   isUsersAvailable(user: any) {
     var available = true;
-    this.USERS.forEach(element => {
+    this.USERS.forEach((element :any) => {
       if (element.name == user) {
         available = false;
       }
@@ -66,7 +64,7 @@ export class UserService {
   }
 
   deleteUserByID(element:any){
-    var index = this.USERS.findIndex(el => { return el.id === element.id});
+    var index = this.USERS.findIndex((el:any) => { return el.id === element.id});
     this.USERS.splice( index,1);
     console.log(this.USERS);
   }

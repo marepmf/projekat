@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import razglas.projekat.model.Komentar;
 import razglas.projekat.model.Objava;
+import razglas.projekat.repository.KomentarRepository;
 import razglas.projekat.repository.ObjavaRepository;
 import razglas.projekat.service.ObjavaService;
 
@@ -24,6 +26,8 @@ public class ObjavaController {
 	
 	@Autowired
 	ObjavaRepository repo;
+	@Autowired
+	KomentarRepository komentarRepo;
 	
 	@Autowired
 	ObjavaService service;
@@ -32,6 +36,12 @@ public class ObjavaController {
 	public ArrayList<Objava> sve(){
 		return (ArrayList<Objava>) repo.findAll();
 	}
+	@GetMapping(value="/za_dogadjaj/{id}")
+	public ArrayList<Objava> vratiObjaveZaDogadjaj(@PathVariable long id){
+		System.out.print(" ID: " + id );
+		System.out.println( repo.findByEventId(id));
+		return (ArrayList<Objava>) repo.findByEventId(id);
+	}
 	
 	@DeleteMapping(value="/izbrisi/{id}")
 	public ArrayList<Objava> izbrisi(@PathVariable long id){
@@ -39,6 +49,21 @@ public class ObjavaController {
 		return (ArrayList<Objava>) repo.findAll();
 	}
 	
+	@PostMapping(value="/dodaj_komentar/{id}")
+	public  void dodaj(@RequestBody String tekst, @PathVariable long id) {
+		
+		Komentar kom = new Komentar();
+		kom.setLajkovi(0);
+		kom.setTekst(tekst);
+		Objava o = repo.findById(id).orElse(null);
+		kom.setObjava(o);
+		kom = komentarRepo.save(kom);
+		if( o != null )
+			{o.getKomentari().add(kom);
+			repo.save(o);
+			}
+		
+	}
 	@PostMapping(value="/postObjava")
 	public void postObjava(@RequestBody Objava o) {
 		service.postObjava(o);

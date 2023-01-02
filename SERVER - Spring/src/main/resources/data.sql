@@ -21,10 +21,10 @@ insert into Korisnik(id,ime, prezime, tip_id) values( 3 , 'Jelena', 'X', 2);
 insert into Korisnik(id,ime, prezime, tip_id) values( 4 , 'Mira', 'X', 2);
 insert into Korisnik(id,ime, prezime, tip_id) values( 5 , 'Jova', 'X', 2);
 
-insert into Objava ( id, naslov, tekst, vreme, autor_id, dogadjaj_id) values( 1, 'Grupna poseta','Okuplnjanje ispred Mieltica..', '20:00', 2,1);
-insert into Dogadjaj_objave (dogadjaj_id, objave_id) values(1,1);
-insert into Objava ( id, naslov, tekst, vreme, autor_id, dogadjaj_id) values( 2, 'VIP poseta','Okuplnjanje ispred Mieltica..', '20:00', 3,1);
-insert into Dogadjaj_objave (dogadjaj_id, objave_id) values(1,2);
-insert into Objava ( id, naslov, tekst, vreme, autor_id, dogadjaj_id) values( 3, 'Poseta za fizicka lica','Prvo na pivo pa onda na koncert', '20:00', 5,1);
-insert into Dogadjaj_objave (dogadjaj_id, objave_id) values(1,3);
 
+insert into Objava ( naslov, tekst, vreme, autor_id, dogadjaj_id) values( 'Grupna poseta','Okuplnjanje ispred Mieltica..', '20:00', 2,1);
+insert into Dogadjaj_objave (dogadjaj_id, objave_id) values(1,1);
+insert into Objava (naslov, tekst, vreme, autor_id, dogadjaj_id) values(  'VIP poseta','Okuplnjanje ispred Mieltica..', '20:00', 3,1);
+insert into Dogadjaj_objave (dogadjaj_id, objave_id) values(1,2);
+insert into Objava ( naslov, tekst, vreme, autor_id, dogadjaj_id) values( 'Poseta za fizicka lica','Prvo na pivo pa onda na koncert', '20:00', 5,1);
+insert into Dogadjaj_objave (dogadjaj_id, objave_id) values(1,3);

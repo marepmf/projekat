@@ -11,13 +11,18 @@ export class EventComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private eventService: EventService) { }
 CURRENT_EVENT:any;
-  ngOnInit(): void {
-
+komentar:string = '';
+dodajKOmentar(){
+  
+      this.eventService.addComment(this.komentar,this.CURRENT_EVENT).subscribe();
+    }
+    ngOnInit(): void {
     this.route.paramMap.subscribe(
       (id: any) => {
         console.log(id);
-      this.eventService.getEventById(id.get('id')).subscribe( data =>{
+      this.eventService.getEventById(id.get('id')).subscribe( data =>{        
         this.CURRENT_EVENT= data;
+
       })
       }
     ); 

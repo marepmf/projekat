@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Komentar {
 	
@@ -18,6 +20,7 @@ public class Komentar {
 	
 	@ManyToOne
 	private Korisnik korisnik;
+	@JsonIgnore
 	@ManyToOne
 	private Objava objava;
 

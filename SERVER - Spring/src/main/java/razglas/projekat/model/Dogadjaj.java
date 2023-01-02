@@ -24,7 +24,7 @@ public class Dogadjaj {
 	private String slika;
 	@ManyToOne
 	private Grad grad;
-	@JsonIgnore
+	
 	@OneToMany
 	private List<Objava> objave;
 	public List<Objava> getObjave() {

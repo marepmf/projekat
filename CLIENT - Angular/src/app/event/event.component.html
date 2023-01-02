@@ -11,7 +11,8 @@
         <mat-card-content>
             
             <h1> Lista objava za ovaj dogadjaj:</h1>
-            <div *ngIf="!CURRENT_EVENT.objave.length">
+            
+            <div *ngIf="CURRENT_EVENT.objave.length == 0">
                 <h2> Nema objava za ovaj dogadjaj</h2>
             </div>
             <div *ngFor="let objava of CURRENT_EVENT.objave" id="objave">
@@ -23,10 +24,17 @@
                                 {{objava.naslov}}
                             </mat-panel-title>
                             <mat-panel-description>
-                                Vreme pocetka: {{objava.vreme}}
+                                {{objava.tekst}}  Vreme pocetka: {{objava.vreme}}
                             </mat-panel-description>
                         </mat-expansion-panel-header>
-                        {{objava.tekst}}
+                        <h2>KOmentari</h2> 
+                        <!-- KOmentari : -->
+                        
+                        <div *ngFor="let komentar of objava.komentari"> 
+                        Komentar #34581   :  {{ komentar.tekst}}
+                            </div>
+                            
+                        <input [(ngModel)]="komentar"> <button (click)="dodajKOmentar()"> Dodaj komentar </button>
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>

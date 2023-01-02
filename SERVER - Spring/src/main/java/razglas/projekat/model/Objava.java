@@ -26,8 +26,8 @@ public class Objava {
 	@OneToMany
 	private List<Komentar> komentari = new ArrayList<>(); 
 	
-	@JsonIgnore
 	@ManyToOne
+	@JsonIgnore
 	private Dogadjaj dogadjaj;
 	
 	
