@@ -1,0 +1,33 @@
+<!-- <div *ngIf="isAdmin()"> -->
+<div class="container">
+    <h1> Spisak aktuelnih dogadjaja</h1>    
+        <div *ngIf="isAdmin()">
+        <h3> Dodaj novi dogadjaj</h3>
+        <input type="file" (change)="onFileChanged($event)">
+<button (click)="onUpload()">Upload!</button>
+    </div>
+    <div *ngIf="EVENTS!= null" class="mainDiv">
+        <div *ngFor="let item of EVENTS ">
+            <mat-card>
+                <mat-card-title>
+                    {{item.naziv}} ( {{item.grad.naziv}}, {{item.grad.drzava.naziv}})
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{item.datum}}
+                </mat-card-subtitle>
+                <img mat-card-image [src] = "item.slika" class="slika">
+                <mat-card-content>
+                    {{item.opis}}
+                </mat-card-content>
+                <mat-card-actions>
+                    <!-- <button mat-button (click)="goToEventPage(item.id)">Detalje</button> -->
+                    <a [routerLink]="['/event', item.id]"> Detalji </a>
+                  </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<div *ngIf="!isAdmin()">
+    Nemate pristup ovoj stranici
+</div>

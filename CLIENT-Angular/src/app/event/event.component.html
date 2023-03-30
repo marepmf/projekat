@@ -1,0 +1,52 @@
+<p *ngIf="!CURRENT_EVENT"> Loading.....</p>
+<div class="mainContent" *ngIf="CURRENT_EVENT">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>                
+              <h1>{{CURRENT_EVENT.opis}}</h1></mat-card-title>
+            <mat-card-subtitle>  Tip dogjadja: {{CURRENT_EVENT.naziv}}. {{CURRENT_EVENT.grad.drzava.naziv}}, {{CURRENT_EVENT.grad.naziv}}</mat-card-subtitle>
+
+        </mat-card-header>
+        <img src="{{CURRENT_EVENT.slika}}"  class="slika">
+        <mat-card-content>
+            
+            <h1> Lista objava za ovaj dogadjaj:</h1>
+            
+            <div *ngIf="CURRENT_EVENT.objave.length == 0">
+                <h2> Nema objava za ovaj dogadjaj</h2>
+            </div>
+            <div *ngFor="let objava of CURRENT_EVENT.objave" id="objave">
+
+                <mat-accordion>
+                    <mat-expansion-panel hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{objava.naslov}}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                {{objava.tekst}}  Vreme pocetka: {{objava.vreme}}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <h2>Komentari</h2> 
+                        <!-- KOmentari : -->
+                        
+                       <!-- ? <div *ngIf="isUserLogged()"> -->
+                            <input [(ngModel)]="komentar"> <button (click)="dodajKOmentar(objava)"> Dodaj komentar </button>
+                        <!-- ?</div> -->
+                        <div *ngFor="let komentar of objava.komentari"> 
+                        Komentar #34581   :  {{ komentar.tekst}}  <button> Lajk</button>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </mat-card-content>
+        <mat-card>
+        <div [formGroup]="objavaForm"> Dodavanje nove objave
+       <h2> Naziv objave: <input matInput placeholder="Naziv objave" formControlName="naziv"></h2>
+        Tekst: <input matInput placeholder="Tekst" formControlName="tekst">
+        Vreme pocetka <input matInput placeholder="Vreme pocetka" formControlName="vreme">
+        <button (click)="dodajObjavu()"> Dodaj objavu </button>
+        </div>
+    </mat-card>
+    </mat-card>
+</div>

@@ -1,0 +1,9 @@
+
+
+
+mat-form-field,button {
+    width: 100%;
+}
+#err{
+    color: red;
+}

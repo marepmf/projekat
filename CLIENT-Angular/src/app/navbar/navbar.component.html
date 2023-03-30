@@ -1,0 +1,31 @@
+<mat-toolbar>
+
+      
+   <span (click)="goToHomePage()">Moj projekat</span>
+   
+   <button mat-button (click)="goToLogin()" *ngIf="!isUserLogged()"> 
+     <span> Login </span>
+   </button>
+   <button mat-button (click)="goToRegistration()" *ngIf="!isUserLogged()"> 
+     <span> Registracija </span>
+   </button>
+   <button mat-button  (click)="goToUser()" *ngIf="isAdminLogged()"> 
+    <span> Svi korisnici</span>
+  </button>
+  <button mat-button (click)="goToAdminPanel()" *ngIf=" isAdminLogged()">
+    <span> Admin strana </span>
+  </button>
+  <button mat-button (click)="goToAdminEntityView()" *ngIf=" isAdminLogged()">
+    <span> Entiteti </span>
+  </button>
+  <button mat-button (click)="goToEventsPage()" *ngIf=" isUserLogged()">
+    <span> Dogadjaji </span>
+  </button>
+  <button mat-button (click)="logout()" *ngIf="isUserLogged()">
+    <span> Odjavi se </span>
+  </button>
+  
+  <button mat-button (click)="goToDodajEntitet()" *ngIf="isAdminLogged()"> Dodaj Entitet</button>
+
+ </mat-toolbar>
+ 

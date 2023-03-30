@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: gray;
+    background-size: cover;
+    background-image: url('assets/slika.jpg');
+    color: antiquewhite;
+}
+
+.center {
+    width: 30%;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}

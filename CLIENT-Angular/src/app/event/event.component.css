@@ -1,0 +1,22 @@
+.mainContent{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}
+.slika{
+    
+    width: 750px;
+    height: 250px;
+    object-fit: cover;
+}
+#objave{
+    width: 750px;
+    /* background-color: gray; */
+}
+p{ position: absolute;
+left: 40%;
+top:40%;
+font-size: x-large;
+color: yellow;}
