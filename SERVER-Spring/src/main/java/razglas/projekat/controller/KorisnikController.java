@@ -63,10 +63,8 @@ public class KorisnikController {
 	public Korisnik login( @RequestBody Kredencijali kredencijali) {
 		ArrayList<Korisnik> svi = (ArrayList<Korisnik>) repo.findAll();
 		for( Korisnik k : svi) {
-			// username == email
-			
-			if( k.getEmail().equals(kredencijali.username) && k.getSifra().equals( kredencijali.password)) {
-				
+			// username == email			
+			if( k.getEmail().equals(kredencijali.username) && k.getSifra().equals( kredencijali.password)) {				
 				return k;	
 			}
 		}

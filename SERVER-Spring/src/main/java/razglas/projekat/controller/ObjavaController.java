@@ -1,6 +1,7 @@
 package razglas.projekat.controller;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import razglas.projekat.model.Dogadjaj;
 import razglas.projekat.model.Komentar;
 import razglas.projekat.model.Objava;
+import razglas.projekat.model.ObjavaDTO;
+import razglas.projekat.repository.DogadjajRepository;
 import razglas.projekat.repository.KomentarRepository;
 import razglas.projekat.repository.ObjavaRepository;
 import razglas.projekat.service.ObjavaService;
@@ -28,7 +32,8 @@ public class ObjavaController {
 	ObjavaRepository repo;
 	@Autowired
 	KomentarRepository komentarRepo;
-	
+	@Autowired
+	DogadjajRepository eventRepo;
 	@Autowired
 	ObjavaService service;
 	
@@ -64,9 +69,16 @@ public class ObjavaController {
 			}
 		
 	}
+	
 	@PostMapping(value="/postObjava")
-	public void postObjava(@RequestBody Objava o) {
-		service.postObjava(o);
+	public Optional<Dogadjaj> postObjava(@RequestBody ObjavaDTO o) {
+		Objava obj = new Objava(o);
+		obj.setDogadjaj(eventRepo.findById(o.getDogadjaj()).orElse(null));
+		service.postObjava(obj);
+		System.out.print(eventRepo.findById((long) 1));
+		return eventRepo.findById(o.getDogadjaj());
+		
+		
 	}
 	
 	@GetMapping(value="/nadji/{id}")

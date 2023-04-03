@@ -40,13 +40,13 @@ public class DrzaveController {
 	}
 	
 	@PostMapping(value="/postDrzava")
-	public void postDrzava(@RequestBody Drzava drz) {
-		service.postDrzava(drz);
+	public void postDrzava(@RequestBody Drzava drzava) {
+		service.postDrzava(drzava);
 	}
 	
-	@GetMapping(value="/nadji")
+	@GetMapping(value="/nadji/{id}")
 	public Drzava nadji(@PathVariable long id) {
-		return repo.findById(id).orElse(null);
+		return repo.getReferenceById(id);
 	}
 	
 	@PutMapping(value="/izmena")

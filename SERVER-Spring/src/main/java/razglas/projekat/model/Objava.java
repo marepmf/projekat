@@ -34,7 +34,12 @@ public class Objava {
 	public Objava() {
 		
 	}
-	
+	public Objava(ObjavaDTO obj) {
+		this.tekst = obj.getTekst();
+		this.naslov = obj.getNaslov();
+		this.vreme = obj.getVreme();
+		
+	}
 	public Objava(long id, String tekst, String naslov, String vreme, Dogadjaj dogadjaj) {
 		super();
 		this.id = id;
@@ -93,6 +98,11 @@ public class Objava {
 
 	public void setKomentari(List<Komentar> komentari) {
 		this.komentari = komentari;
+	}
+	@Override
+	public String toString() {
+		return "Objava [id=" + id + ", tekst=" + tekst + ", naslov=" + naslov + ", vreme=" + vreme + ", autor=" + autor
+				+ ", komentari=" + komentari + ", dogadjaj=" + dogadjaj + "]";
 	}
 
 	
