@@ -30,7 +30,7 @@ export class DodajGradComponent implements OnInit {
     var grad ={
       naziv: this.formControl.value.naziv,
       opstina: this.formControl.value.opstina,
-      //drzava: this.formControl.value.country
+      drzava: this.formControl.value.country
     }
     this.citiesService.addCity(grad);
     console.log("entitet je kreiran : " + grad.naziv);

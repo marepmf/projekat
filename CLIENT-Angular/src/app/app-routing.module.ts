@@ -14,6 +14,7 @@ import { ObjekatComponent } from './objekat/objekat.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { TipObjektaComponent } from './tip-objekta/tip-objekta.component';
 import { UserComponent } from './user/user.component';
+import { IzmeniGradComponent } from './izmeni-grad/izmeni-grad.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'events', component: AdminPanelComponent},
   {path:'dodajObjavu', component: ObjavaComponent},
   {path:'dodajGrad', component:DodajGradComponent},
-  {path:'dodajTipObjekta', component: TipObjektaComponent}
+  {path:'dodajTipObjekta', component: TipObjektaComponent},
+  {path:'izmeniGrad/:element.id', component: IzmeniGradComponent}
 ];
 
 @NgModule({

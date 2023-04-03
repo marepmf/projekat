@@ -30,6 +30,7 @@ import { ObjavaComponent } from './objava/objava.component';
 import { TipObjektaComponent } from './tip-objekta/tip-objekta.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DodajGradComponent } from './dodaj-grad/dodaj-grad.component';
+import { IzmeniGradComponent } from './izmeni-grad/izmeni-grad.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { DodajGradComponent } from './dodaj-grad/dodaj-grad.component';
     ObjekatComponent,
     ObjavaComponent,
     TipObjektaComponent,
-    DodajGradComponent
+    DodajGradComponent,
+    IzmeniGradComponent
     
   ],
   imports: [
@@ -68,7 +70,7 @@ import { DodajGradComponent } from './dodaj-grad/dodaj-grad.component';
     BrowserAnimationsModule,
     HttpClientModule 
   ],
-  providers: [],
+  providers: [AdminEntityViewComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

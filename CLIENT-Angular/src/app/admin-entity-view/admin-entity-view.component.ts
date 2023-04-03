@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CitiesService } from '../cities.service';
 import { CountryServiceService } from '../country-service.service';
 import { UserService } from '../user.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin-entity-view',
@@ -12,7 +13,8 @@ export class AdminEntityViewComponent implements OnInit {
 
   constructor(private citiesService: CitiesService, 
                 private userService :UserService,
-                private countryService: CountryServiceService) { }
+                private countryService: CountryServiceService,
+                private router: Router) { }
   selectedEntity:any;
   dataSource :any;
   displayedColumns:any;
@@ -68,9 +70,12 @@ export class AdminEntityViewComponent implements OnInit {
     }
  
   }
-    changeRow(element: any){
-      
-    }
+    /*changeRow(target: any){
+      var id = parseInt(target.id);
+      if(this.selectedEntity=='Gradovi'){
+        this.router.navigate(['izmeniGrad/',id]);
+      }
+    }*/
 
   ngOnInit(): void {
   }
