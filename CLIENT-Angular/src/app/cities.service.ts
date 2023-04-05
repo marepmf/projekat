@@ -30,9 +30,9 @@ export class CitiesService{
   }
 
   deleteCityByID( id : any){
-    //var index = this.CITIES.findIndex(el => { return el.id === id});
-    //this.CITIES.splice( index,1);
-    //this.http.delete(this.API+"'' maping za delte)
+    return this.http.delete(this.API+"/izbrisi/"+id,id).subscribe(
+      ()=> console.log("obrisan grad sa id-jem : " + id)
+    )
   }
 
   addCity(city: any){
