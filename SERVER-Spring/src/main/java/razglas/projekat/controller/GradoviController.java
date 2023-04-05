@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import razglas.projekat.model.Grad;
+import razglas.projekat.repository.DrzavaRepository;
 import razglas.projekat.repository.GradoviRepository;
 import razglas.projekat.service.GradService;
 
@@ -24,6 +26,9 @@ public class GradoviController {
 	
 	@Autowired
 	private GradService gradService;
+	
+	@Autowired
+	DrzavaRepository drz;
 	
 	@Autowired
 	GradoviRepository repo;
@@ -49,13 +54,14 @@ public class GradoviController {
 		return repo.findById(id).orElse(null);
 	}
 
-	@PutMapping(value="/izmena")
-	public void izmeni(@RequestBody Grad g)
+	@PutMapping(value="/izmena/{id}")
+	public void izmeni(@PathVariable long id, @RequestBody Grad g)
 	{
-		var stari = repo.getReferenceById(g.getId());
-		stari.setDrzava(g.getDrzava());
+		var stari = repo.getReferenceById(id);
+		
 		stari.setNaziv(g.getNaziv());
 		stari.setOpstina(g.getOpstina());
+		stari.setDrzava(g.getDrzava());
 		repo.flush();
 		
 	}

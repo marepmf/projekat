@@ -20,7 +20,6 @@ public class Dogadjaj {
 	private String naziv;
 	private String opis;
 	private String datum;
-	
 	private String slika;
 	@ManyToOne
 	private Grad grad;
@@ -91,6 +90,12 @@ public class Dogadjaj {
 
 	public void setSlika(String slika) {
 		this.slika = slika;
+	}
+
+	@Override
+	public String toString() {
+		return "Dogadjaj [id=" + id + ", naziv=" + naziv + ", opis=" + opis + ", datum=" + datum + ", slika=" + slika
+				+ ", grad=" + grad + ", objave=" + objave + ", gosti=" + gosti + "]";
 	}
 	
 	
