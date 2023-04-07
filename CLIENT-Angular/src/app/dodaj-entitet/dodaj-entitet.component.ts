@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, NgForm } from '@angular/forms';
-import { CitiesService } from '../cities.service';
-import { CountryServiceService } from '../country-service.service';
+
 
 @Component({
   selector: 'app-dodaj-entitet',

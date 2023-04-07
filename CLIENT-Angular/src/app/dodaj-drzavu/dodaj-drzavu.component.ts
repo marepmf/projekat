@@ -21,14 +21,14 @@ export class DodajDrzavuComponent implements OnInit {
 
   formControl = new FormGroup({
     naziv: new FormControl(''),
-    gradovi: new FormControl('')
   })
 
   create(){
     var drzava = {
       naziv: this.formControl.value.naziv,
-      gradovi: this.formControl.value.gradovi
+      gradovi: null
     }
+   
     console.log(drzava);
     this.countryService.addCountry(drzava)
   }

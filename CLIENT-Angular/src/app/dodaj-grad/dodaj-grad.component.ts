@@ -23,10 +23,12 @@ export class DodajGradComponent implements OnInit {
 
   ngOnInit(): void {
     this.countryService.getAllCountries().subscribe((data:any)=>{this.Countries = data});
+    
   }
   Countries :any;
 
   create(){
+    
     var grad ={
       naziv: this.formControl.value.naziv,
       opstina: this.formControl.value.opstina,

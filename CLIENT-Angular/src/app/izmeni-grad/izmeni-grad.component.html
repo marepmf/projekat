@@ -19,7 +19,7 @@
       <mat-form-field>
         <mat-label>Odaberi drzavu</mat-label>
         <mat-select formControlName="country">
-          <mat-option *ngFor="let country of Countries" [value]="country.id">
+          <mat-option *ngFor="let country of Countries" [value]="country">
             Drzava : {{country.naziv}} ima id {{country.id}}
           </mat-option>
         </mat-select>

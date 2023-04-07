@@ -43,16 +43,16 @@ export class CitiesService{
   
   }
 
-  izmeniGrad(id:number,city:any){
-    this.changeCity(id,city).subscribe(
+  izmeniGrad(id:number,naziv:any,opstina:any,drzava:any){
+    this.changeCity(id,naziv,opstina,drzava).subscribe(
       () => {
-        console.log("grad izmenjen",id)
+        console.log("grad izmenjen", id);
       }
     )
   }
 
-  changeCity(id:number, city: any){
-    return this.http.put(this.API+"/izmena/"+id,city);
+  changeCity(id:number, naziv:any,opstina:any,drzava:any){
+    return this.http.put(this.API+"/izmena/"+id+"/"+naziv+"/"+opstina,drzava);
   }
 
  

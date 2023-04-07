@@ -26,7 +26,7 @@ API= 'http://localhost:8080/drzave';
     return this.http.get(this.API+'/sve');
   }
   deleteCountryByID( id : any){
-    this.http.delete (this.API + '/izbrisi/' + id);
+    return this.http.delete (this.API + '/izbrisi/' + id);
   }
 
   getCountryById(id: any){
@@ -34,7 +34,7 @@ API= 'http://localhost:8080/drzave';
   }
 
   postDrzava(country: any){
-    return this.http.post(this.API+ '/postDrzava', country);
+    return this.http.post(this.API+ '/postDrzava/',country);
   }
 
 }

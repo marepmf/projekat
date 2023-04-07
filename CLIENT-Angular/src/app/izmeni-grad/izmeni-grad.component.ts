@@ -22,6 +22,7 @@ export class IzmeniGradComponent implements OnInit {
       }
     );
     console.log(this.id);
+    
   }
 
   
@@ -41,12 +42,11 @@ export class IzmeniGradComponent implements OnInit {
     var grad = {
       naziv: this.formControl.value.naziv,
       opstina: this.formControl.value.opstina,
-      country: this.countryService.getCountryById(this.formControl.value.country)
+      country: this.formControl.value.country
     }
 
-    console.log("id:"+this.id+" naziv,opstina,drzava :" + grad.naziv
-    +grad.opstina+grad.country);
-    this.cityService.izmeniGrad(this.id,grad);
+    
+    this.cityService.izmeniGrad(this.id,grad.naziv,grad.opstina,grad.country);
     this.idiNazad();
   }
 

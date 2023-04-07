@@ -6,14 +6,6 @@
           <input matInput placeholder="naziv-drzave" formControlName="naziv">
         </mat-form-field>
 
-        <mat-form-field >
-        <mat-label>Odaberi grad</mat-label>
-                <mat-select formControlName="gradovi" multiple>
-                  <mat-option *ngFor="let grad of Gradovi" [value]="grad" >
-                    Grad : {{grad.naziv}} ima id {{grad.id}}
-                  </mat-option>
-                </mat-select>
-            </mat-form-field>
       
   </form>
 
