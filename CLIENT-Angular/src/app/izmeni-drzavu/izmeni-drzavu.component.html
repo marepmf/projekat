@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card" style="align-items: center">
+        <h1>Izmeni drzavu</h1>
+    </div>
+  
+<div class="card">
+    <form class="example-form" [formGroup]="formControl">
+      <mat-form-field class="example-full-width">
+        <mat-label>Naziv drzave</mat-label>
+        <input matInput placeholder="Ex. Pizza" formControlName="naziv">
+      </mat-form-field>
+    </form>
+
+    <section>
+        <button mat-raised-button class="create" (click)="izmeni()">Izmeni</button>
+        <button mat-raised-button color="primary" (click)="idiNazad()" > nazad</button>
+    </section>
+  </div>
+</div>

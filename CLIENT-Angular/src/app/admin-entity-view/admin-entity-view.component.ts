@@ -3,6 +3,7 @@ import { CitiesService } from '../cities.service';
 import { CountryServiceService } from '../country-service.service';
 import { UserService } from '../user.service';
 import { Router, RouterModule } from '@angular/router';
+import { ObjekatService } from '../objekat.service';
 
 @Component({
   selector: 'app-admin-entity-view',
@@ -14,25 +15,26 @@ export class AdminEntityViewComponent implements OnInit {
   constructor(private citiesService: CitiesService, 
                 private userService :UserService,
                 private countryService: CountryServiceService,
+                private objekatService: ObjekatService,
                 private router: Router) { }
   selectedEntity:any;
   dataSource :any;
   displayedColumns:any;
   displayPropertyColumns:any;
-
-  entity_list = ['Gradovi', 'Korisnici','Drzave'];
+  entity_list = ['Gradovi', 'Korisnici','Drzave','Objekti'];
+  
+  
   showEntity(){
     console.log(this.selectedEntity);
    
-
     if(this.selectedEntity=='Gradovi')
       this.showCities();
     if(this.selectedEntity=='Korisnici')
       this.showUsers();
-      if(this.selectedEntity == 'Drzave')
+    if(this.selectedEntity == 'Drzave')
       this.showCountries();
-
-     
+    if(this.selectedEntity== 'Objekti')
+      this.showObjects();
       
       console.log(this.displayedColumns)
   }
@@ -48,12 +50,17 @@ export class AdminEntityViewComponent implements OnInit {
   showUsers(){
     this.displayedColumns = this.userService.getFullColumns();
     this.displayPropertyColumns = this.userService.getPropertyColumns();
-    this.dataSource = this.userService.USERS;
+    this.dataSource = this.userService.getKorisnici();
   }
   showCountries(){
     this.displayedColumns = this.countryService.getFullColumns();
     this.displayPropertyColumns = this.countryService.getPropertyColumns();
     this.dataSource = this.countryService.getAllCountries();
+  }
+  showObjects(){
+    this.displayedColumns = this.objekatService.getFullColumns();
+    this.displayPropertyColumns = this.objekatService.getPropertyColumns();
+    this.dataSource = this.objekatService.getObjekte();
   }
   deleteRow(target : any){
     if(this.selectedEntity=='Gradovi'){
@@ -70,12 +77,15 @@ export class AdminEntityViewComponent implements OnInit {
     }
  
   }
-    /*changeRow(target: any){
-      var id = parseInt(target.id);
-      if(this.selectedEntity=='Gradovi'){
-        this.router.navigate(['izmeniGrad/',id]);
-      }
-    }*/
+
+  changeRow(target : any){
+    if(this.selectedEntity=='Gradovi'){
+      this.router.navigate(['izmeniGrad/'+target.id])
+    }
+    if(this.selectedEntity=='Drzave'){
+      this.router.navigate(['izmeniDrzavu/'+target.id])
+    }
+  }
 
   ngOnInit(): void {
   }

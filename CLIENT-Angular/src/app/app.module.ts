@@ -31,6 +31,7 @@ import { TipObjektaComponent } from './tip-objekta/tip-objekta.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DodajGradComponent } from './dodaj-grad/dodaj-grad.component';
 import { IzmeniGradComponent } from './izmeni-grad/izmeni-grad.component';
+import { IzmeniDrzavuComponent } from './izmeni-drzavu/izmeni-drzavu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { IzmeniGradComponent } from './izmeni-grad/izmeni-grad.component';
     ObjavaComponent,
     TipObjektaComponent,
     DodajGradComponent,
-    IzmeniGradComponent
+    IzmeniGradComponent,
+    IzmeniDrzavuComponent
     
   ],
   imports: [

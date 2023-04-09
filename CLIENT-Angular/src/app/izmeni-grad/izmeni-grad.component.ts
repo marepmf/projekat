@@ -35,8 +35,7 @@ export class IzmeniGradComponent implements OnInit {
     naziv: new FormControl(''),
     opstina : new FormControl(''),
     country : new FormControl('')
-  }
-  )
+  })
 
   izmeni(){
     var grad = {

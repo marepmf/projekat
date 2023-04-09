@@ -14,14 +14,14 @@ export class CitiesService{
   API= 'http://localhost:8080/gradovi';
 
   getPropertyColumns() {
-    return ['id', 'naziv','opstina','drzava','brisi','izmeni'];
+    return ['id', 'naziv','opstina','drzavaNaziv','brisi','izmeni'];
   }
   
   getFullColumns() {
     return [
     { property: "id", display: "Sifra"},
     { property: "opstina", display: "Opstina"},
-    { property: "drzava", display: "Drzava"},
+    { property: "drzavaNaziv", display: "Drzava"},
     { property: 'naziv', display: "Naziv" }];
   }
 

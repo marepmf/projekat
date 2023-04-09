@@ -7,8 +7,7 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  public USERS: any = [
-  ];
+  public USERS: any;
   loggedUser: any; // ulogovani korisnik/admin
   isUserLogged = false;
 
@@ -17,6 +16,7 @@ export class UserService {
   API = 'localhost:8080/korisnici';
 
   error_message =""
+
   loginUser(user: any) {
     return this.http.post("http://localhost:8080/korisnici/login", user);
   }
@@ -52,11 +52,11 @@ export class UserService {
 
   }
   addUser(user: any) {
-    this.http.post("http://localhost:8080/korisnici/dodaj", user).subscribe();
+    return this.http.post("http://localhost:8080/korisnici/dodaj", user).subscribe();
   }
 
-  getKorisnici() {
-    this.http.get(this.API + '/sve');
+  getKorisnici():any {
+    return this.http.get(this.API + '/sve');
   }
 
   getPropertyColumns() {

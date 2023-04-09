@@ -13,7 +13,8 @@ API= 'http://localhost:8080/drzave';
     return ['id', 'naziv','brisi','izmeni'];
   }
   getFullColumns() {
-    return [{ property: "id", display: "Sifra" },
+    return [
+    { property: "id", display: "Sifra" },
     { property: 'naziv', display: "Naziv" }]
   }
 
@@ -35,6 +36,10 @@ API= 'http://localhost:8080/drzave';
 
   postDrzava(country: any){
     return this.http.post(this.API+ '/postDrzava/',country);
+  }
+
+  izmeniDrzavu(country: any,id:any){
+    return this.http.put(this.API+ '/izmena/'+id, country).subscribe();
   }
 
 }

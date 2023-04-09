@@ -15,12 +15,12 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserService, private router :Router) {
     
-    this.statusLogovanja = this.userService.isUserLogged;
-    
-    console.log(this.router.getCurrentNavigation());
+    //this.statusLogovanja = this.userService.isUserLogged;
+    //console.log(this.router.getCurrentNavigation());
   }
 
   ngOnInit(): void {
+    
   }
 
 }
