@@ -11,7 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 
 
@@ -27,13 +28,14 @@ public class Grad {
 	
 	
 	
+	
 	@OneToMany
 	private List<Objekat> objekti = new ArrayList<>();
 	@OneToMany
 	private List<Dogadjaj> dogadjaj = new ArrayList<>();
 	
-	@JsonIgnore
-	@ManyToOne(cascade = CascadeType.ALL)	
+	// json ignore
+	@ManyToOne(cascade=CascadeType.MERGE)
 	private Drzava drzava = new Drzava();
 
 	public Drzava getDrzava() {
@@ -49,10 +51,8 @@ public class Grad {
 	}
 
 	public void setDrzava(Drzava drzava) {
-		
-		this.getDrzava().removeGrad(this);
 		this.drzava = drzava;
-		this.drzava.dodajGrad(this);
+		
 	}
 	
 	
@@ -67,6 +67,7 @@ public class Grad {
 		this.dogadjaj = null;
 		
 	}
+	
 
 	public Grad() {}
 	
@@ -89,7 +90,7 @@ public class Grad {
 	public List<Objekat> getObjekti() {
 		return objekti;
 	}
-
+	
 	public void setObjekti(List<Objekat> objekti) {
 		this.objekti = objekti;
 	}
@@ -102,5 +103,7 @@ public class Grad {
 		this.dogadjaj = dogadjaj;
 	}
 
-	
+	public String toString() {
+		return naziv.toUpperCase();
+	}
 }

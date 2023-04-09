@@ -3,6 +3,7 @@ package razglas.projekat.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,7 @@ public class Drzava {
 	private long id;
 	private String naziv;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private List<Grad> gradovi = new ArrayList<Grad>();
 
 	public Drzava() {
@@ -62,5 +63,4 @@ public class Drzava {
 	public void removeGrad(Grad g) {
 		this.gradovi.remove(g);
 	}
-	
 }

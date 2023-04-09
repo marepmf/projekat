@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import razglas.projekat.model.Drzava;
+import razglas.projekat.model.Grad;
 import razglas.projekat.repository.DrzavaRepository;
 import razglas.projekat.service.DrzavaService;
 
@@ -46,15 +47,14 @@ public class DrzaveController {
 	
 	@GetMapping(value="/nadji/{id}")
 	public Drzava nadji(@PathVariable long id) {
-		return repo.getReferenceById(id);
+		return repo.findById(id).get();
 	}
 	
-	@PutMapping(value="/izmena")
-	public void izmeni(@RequestBody Drzava d) {
-		var stari = repo.getReferenceById(d.getId());
-		stari.setGradovi(d.getGradovi());
+	@PutMapping(value="/izmena/{id}")
+	public void izmeni(@RequestBody Drzava d, @PathVariable long id) {
+		var stari = repo.getReferenceById(id);
 		stari.setNaziv(d.getNaziv());
-		repo.flush();
+		repo.save(stari);
 	}
 	
 }

@@ -33,12 +33,16 @@ public class Korisnik {
 	public Korisnik() {}
 
 	
-	public Korisnik(Long id, String ime, String prezime, TipKorisnika tip) {
+	public Korisnik(Long id, String ime, String prezime,String email,String sifra, TipKorisnika tip) {
 		super();
 		this.id = id;
 		this.ime = ime;
 		this.prezime = prezime;
+		this.email = email;
+		this.sifra = sifra;
 		this.tip = tip;
+		this.objave = null;
+		this.komentari = null;
 	}
 	public String getPrezime() {
 		return prezime;

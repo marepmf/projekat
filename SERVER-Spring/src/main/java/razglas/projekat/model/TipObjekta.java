@@ -52,6 +52,8 @@ public class TipObjekta {
 		this.objekti = objekti;
 	}
 	
-	
+	public String toString() {
+		return tip.toUpperCase();
+	}
 	
 }

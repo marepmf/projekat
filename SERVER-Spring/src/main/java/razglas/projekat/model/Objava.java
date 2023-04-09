@@ -3,6 +3,7 @@ package razglas.projekat.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,12 +22,12 @@ public class Objava {
 	private String tekst;
 	private String naslov;
 	private String vreme;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Korisnik autor;
 	@OneToMany
 	private List<Komentar> komentari = new ArrayList<>(); 
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JsonIgnore
 	private Dogadjaj dogadjaj;
 	

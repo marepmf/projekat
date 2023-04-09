@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import razglas.projekat.model.Objekat;
+import razglas.projekat.model.ObjekatTipObjektaGradDTO;
 import razglas.projekat.repository.ObjekatRepository;
 import razglas.projekat.service.ObjekatService;
 
@@ -29,8 +30,8 @@ public class ObjekatController {
 	ObjekatService service;
 	
 	@RequestMapping(value="/sve")
-	public ArrayList<Objekat> sve(){
-		return (ArrayList<Objekat>) repo.findAll();
+	public ArrayList<ObjekatTipObjektaGradDTO> sve(){
+		return (ArrayList<ObjekatTipObjektaGradDTO>) service.sve();
 	}
 	
 	@DeleteMapping(value="/izbrisi/{id}")

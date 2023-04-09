@@ -28,3 +28,7 @@ insert into Objava (naslov, tekst, vreme, autor_id, dogadjaj_id) values(  'VIP p
 insert into Dogadjaj_objave (dogadjaj_id, objave_id) values(1,2);
 insert into Objava ( naslov, tekst, vreme, autor_id, dogadjaj_id) values( 'Poseta za fizicka lica','Prvo na pivo pa onda na koncert', '20:00', 5,1);
 insert into Dogadjaj_objave (dogadjaj_id, objave_id) values(1,3);
+
+
+
+
